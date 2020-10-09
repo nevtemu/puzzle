@@ -11,13 +11,14 @@
 </head>
 <body>
     <div class="gamefield">
-        
+
     <div class="winPopUp show" id="winPopUp" onclick="createBoxes()">
         Congratulations! <br>
-        <span class="small">You solved the puzzle in <span></span> <br>
-        You took <span></span> turns <br></span>
+        <span class="small">You solved the puzzle in <span id="finalTime"></span> <br>
+        You took <span id="finalTurns"></span> turns <br></span>
         Click to try again
       </div>
+      <!-- <div class="i-button" onclick="createBoxes()">i</div> -->
     <div class="instructions">
         Your task is to turn all boxes green. <br> By clicking on box you change color of the box and it's adjusted boxes.
     </div>
