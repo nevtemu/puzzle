@@ -1,19 +1,35 @@
+*{
+  padding:0;
+  margin:0;
+  font-family: "Lucida Console", Courier, monospace;
+}
 @media only screen and (orientation: landscape){
   :root {
     --base-size: calc(100vh/3.5);
+  }
+  .gamefield{
+  margin: 0 auto; 
   }
 }
 @media only screen and (orientation: portrait){
   :root {
     --base-size: calc(100vw/3.5);
   }
+  .gamefield{
+    margin: auto 0; 
+    }
 }
 
-*{
-  padding:0;
-  margin:0;
-}
 
+
+.instructions{
+  background-color: peachpuff;
+  margin: calc(var(--base-size)/20);
+  margin-bottom: 0;
+  font-size: calc(var(--base-size)/10);
+  padding: calc(var(--base-size)/20) calc(var(--base-size)/10);
+  border-radius: calc(var(--base-size)/10);
+}
 .main {
   display: grid;
   grid-template-columns:1fr 1fr 1fr;
@@ -34,15 +50,43 @@ margin: calc(var(--base-size)/20);
   border: calc(var(--base-size)/40) inset rgb(2, 66, 16);
   background-color: rgb(1, 134, 12);
       }
-
-     
-
 .inactive {
   border: calc(var(--base-size)/40) inset rgb(87, 1, 5);
   background-color: rgb(199, 4, 4);
     }
-
-    #winBox{
+.gamefield{
+  position:relative;
+}
+    .winPopUp{
       text-align: center;
-      font-family: "Lucida Console", Courier, monospace;
+      font-size: calc(var(--base-size)/7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      visibility:hidden;
+      width: calc(var(--base-size)*2);
+      height: calc(var(--base-size)*2);
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: calc(var(--base-size)/10);
+  /* padding: calc(var(--base-size)*(1 - 4/7)) 0; */
+  position: absolute;
+  z-index: 1;
+  bottom: 22%;
+  left: 22%;
+
+    }
+    .winPopUp .small{
+      font-size: calc(var(--base-size)/10);
+    }
+.show {
+      visibility: visible;
+      animation: appear 2s;
+      opacity:0.8;
+    }
+    @keyframes appear {
+      0% {opacity: 0;}
+      100% {opacity:0.8 ;}
     }

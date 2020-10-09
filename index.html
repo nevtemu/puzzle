@@ -10,11 +10,21 @@
 	<link rel="icon" type="image/png" href="icon.png" sizes="16x16" />	
 </head>
 <body>
-
-    <div class="instructions"></div>
+    <div class="gamefield">
+        
+    <div class="winPopUp show" id="winPopUp" onclick="createBoxes()">
+        Congratulations! <br>
+        <span class="small">You solved the puzzle in <span></span> <br>
+        You took <span></span> turns <br></span>
+        Click to try again
+      </div>
+    <div class="instructions">
+        Your task is to turn all boxes green. <br> By clicking on box you change color of the box and it's adjusted boxes.
+    </div>
     <div id="main" class="main">
 	
     </div>
 
+</div>
 </body>
 </html>

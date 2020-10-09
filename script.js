@@ -1,7 +1,7 @@
 const GRIDS = [[1,1],[1,2],[1,3],[2,3],[3,3],[3,2],[3,1],[2,1]]
 const createBoxes = () => {
-    document.getElementById('main').innerHTML =`<div name="box" class="active" id="winBox" onclick="createBoxes()" style="grid-row:2; grid-column: 2; visibility: visible;">You won</div>`;
-    document.getElementById(`winBox`).setAttribute("style", "grid-row:2; grid-column: 2; visibility: hidden;") 
+    document.getElementById("winPopUp").classList.toggle("show");
+    document.getElementById('main').innerHTML = "";
 let boxStates = [];
 for (k=0; k<8; k++){
 if (k<2){if (getRandomNumber(1,2)==1){boxStates.push("active")}else{boxStates.push("inactive")}}
@@ -25,7 +25,7 @@ boxStates.push(document.getElementById(`box${k}`).getAttribute("class"))
     }
     if (boxStates.includes("inactive")){}
     else{
-        document.getElementById(`winBox`).setAttribute("style", "grid-row:2; grid-column: 2; visibility: visible;") 
+        document.getElementById("winPopUp").classList.toggle("show");
     }
 }
 
