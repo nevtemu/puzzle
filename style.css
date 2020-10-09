@@ -1,0 +1,35 @@
+body {
+  }
+
+.main {
+  display: grid;
+  grid-template-columns:1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin: 10px;
+      }
+
+
+[name=box]{
+  border-radius: 40px;
+  width: 200px;
+height: 200px;
+margin: 10px;
+border-radius: 40px;
+}
+
+.active {
+  border: 5px inset rgb(2, 66, 16);
+  background-color: rgb(1, 134, 12);
+      }
+
+     
+
+.inactive {
+  border: 5px inset rgb(87, 1, 5);
+  background-color: rgb(199, 4, 4);
+    }
+
+    #winBox{
+      text-align: center;
+      font-family: "Lucida Console", Courier, monospace;
+    }
