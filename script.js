@@ -14,7 +14,7 @@ boxStates.push(document.getElementById(`box${k}`).getAttribute("name"))
         clearInterval (counter);
         document.getElementById("finalTime").innerHTML = `${convertTime(parseInt(time / 60))}:${convertTime(time % 60)}`
         document.getElementById("finalTurns").innerHTML = turns;
-        let a = document.getElementsByName(`box`);
+        let a = document.getElementsByName(`active`);
         Array.from(a).forEach(element => {element.setAttribute("onclick", "")}); 
         document.getElementById("winPopUp").classList.toggle("show");
     }
