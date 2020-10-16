@@ -4,30 +4,43 @@ let turns, time, counter;
 const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1) ) + min; 
 
 const checkGameStatus = () => {
+
     let boxStates = [];
     for (k=0; k<8; k++){ 
-boxStates.push(document.getElementById(`box${k}`).getAttribute("class"))
+boxStates.push(document.getElementById(`box${k}`).getAttribute("name"))
     }
     if (boxStates.includes("inactive")){}
     else{
         clearInterval (counter);
         document.getElementById("finalTime").innerHTML = `${convertTime(parseInt(time / 60))}:${convertTime(time % 60)}`
         document.getElementById("finalTurns").innerHTML = turns;
-        let a = document.getElementsByClassName(`active`);
+        let a = document.getElementsByName(`box`);
         Array.from(a).forEach(element => {element.setAttribute("onclick", "")}); 
         document.getElementById("winPopUp").classList.toggle("show");
     }
 }
 
 const changeBoxStatus = (box) => {
+    
     let boxList = [];
     let m = parseInt(box.split("").pop());
     if (m==0){boxList=[7,0,1]}
     else if(m==7){boxList=[0,6,7]}
     else{boxList=[m-1,m,m+1]}
     for (j=0; j<=2; j++){
-    if (document.getElementById(`box${boxList[j]}`).getAttribute("class") =="active"){document.getElementById(`box${boxList[j]}`).setAttribute("class", "inactive")}
-    else {document.getElementById(`box${boxList[j]}`).setAttribute("class", "active")}   
+    if (document.getElementById(`box${boxList[j]}`).getAttribute("name").includes("inactive")){
+        document.getElementById(`box${boxList[j]}`).setAttribute("name", "active")
+        document.getElementById(`box${boxList[j]}`).classList.toggle("animate1");
+        document.getElementById(`box${boxList[j]}`).classList.toggle("animate2");
+
+
+    }
+    else {document.getElementById(`box${boxList[j]}`).setAttribute("name", "inactive")
+    document.getElementById(`box${boxList[j]}`).classList.toggle("animate1");
+    document.getElementById(`box${boxList[j]}`).classList.toggle("animate2");
+
+
+}   
 }}
 
 const countTurns = ()=>{
@@ -39,6 +52,7 @@ const userMove = (buttonID)=>{
 countTurns();
 changeBoxStatus(buttonID);
 checkGameStatus();
+
 }
 
 
@@ -70,7 +84,7 @@ else{
             else{if (getRandomNumber(1,2)==1){boxStates.push("active")}else{boxStates.push("inactive")}}}}
 
 for (i=0; i<8; i++){
-document.getElementById('main').innerHTML += `<div name="box" class="${boxStates[i]}" id="box${i}" onclick="userMove(this.id)" style="grid-row:${GRIDS[i][0]}; grid-column: ${GRIDS[i][1]}"></div>`;
+document.getElementById('main').innerHTML += `<div name="${boxStates[i]}" class="animate1" id="box${i}" onclick="userMove(this.id)" style="grid-row:${GRIDS[i][0]}; grid-column: ${GRIDS[i][1]}"></div>`;
 }
 document.getElementById('main').innerHTML += `<div class="stats" id="stats" style="grid-row:2; grid-column: 2"> <div>Turns: <span id="turns">0</span></div><br><div> Time: <span id="minutes">00</span>:<span id="seconds">00</span> </div></div>`;
 }
