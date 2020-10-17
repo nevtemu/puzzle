@@ -5,40 +5,39 @@
 }
 @media only screen and (orientation: landscape){
   :root {
-    --base-size: calc((100vh - 9.43vh)/3.5);
+    --base-size: calc((100vh - 12vh)/3.7);
   }
   .gamefield{
-  margin: 0 calc((100vw - var(--base-size)*3.3)/2); 
+    margin: 0 calc((100vw - var(--base-size)*3.3)/2); 
   }
 }
 @media only screen and (orientation: portrait){
   :root {
-    --base-size: calc(100vw/3.5);
+    --base-size: calc(100vw/3.7);
   }
   .gamefield{
-    margin: calc((100vh - var(--base-size)*3.3)/2) 0; 
-    }
+    margin: calc((100vh - 14vh - var(--base-size)*3.3)/2) 0; 
+  }
 }
-
 .instructions{
   background-color: peachpuff;
   margin: calc(var(--base-size)/20);
-  margin-bottom: 0;
+  margin-bottom: 29px;
   font-size: calc(var(--base-size)/10);
   padding: calc(var(--base-size)/20) calc(var(--base-size)/10);
   border-radius: calc(var(--base-size)/10);
   z-index:1;
+  visibility: hidden;
 }
 .instructions::after {
   content: "";
   position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width:calc(var(--base-size)/20);
+  top: 10%;
+  left: calc(6vw - var(--base-size)*0.04 );
+  border-width:calc(var(--base-size)*0.08);
   border-style: solid;
   border-color: peachpuff transparent transparent transparent;
-z-index:1;
+  z-index:1;
 }
 .i-button{
   border-radius: 50px;
@@ -49,38 +48,31 @@ z-index:1;
   height: 16px;
   position: absolute;
   z-index: 1;
-  top: 10%;
-  left: 2%;
+  top: 12%;
+  left: 6vw;
 }
 .main {
   display: grid;
   grid-template-columns:1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   /* margin: calc(var(--base-size)/40); */
-      }
-
-/* 
-[name=box]{
-
-
-} */
-
+}
 [name="active"] {
   border: calc(var(--base-size)/40) inset rgb(2, 66, 16);
   background-color: rgb(1, 134, 12);
-      }
-  [name="inactive"] {
+}
+[name="inactive"] {
   border: calc(var(--base-size)/40) inset rgb(87, 1, 5);
   background-color: rgb(199, 4, 4);
-
-    }
+}
 [name="active"], [name="inactive"]{
   transition: background 1s;
   border-radius: calc(var(--base-size)/5);
   width: var(--base-size);
-height: var(--base-size);
-margin: calc(var(--base-size)/20);
+  height: var(--base-size);
+  margin: calc(var(--base-size)/20);
 }
+/*Rotate between 2 animations for repeated animation */
 .animate1{
   animation: change1 1s;
 }
@@ -88,25 +80,26 @@ margin: calc(var(--base-size)/20);
   animation: change2 1s;
 }
 @keyframes change1 {
-50% {transform: scale(0)}
-100% {transform: scale(1)}
+  50% {transform: scale(0)}
+  100% {transform: scale(1)}
 }
 @keyframes change2 {
   50% {transform: scale(0)}
   100% {transform: scale(1)}
-  }
+}
+
 .gamefield{
   position:relative;
 }
-    .winPopUp{
-      font-size: calc(var(--base-size)/7);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      visibility:hidden;
-      width: calc(var(--base-size)*2);
-      height: calc(var(--base-size)*2);
+.winPopUp{
+  font-size: calc(var(--base-size)/7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  visibility:hidden;
+  width: calc(var(--base-size)*2);
+  height: calc(var(--base-size)*2);
   background-color: #555;
   color: #fff;
   border-radius: calc(var(--base-size)/10);
@@ -115,28 +108,28 @@ margin: calc(var(--base-size)/20);
   z-index: 2;
   bottom: 22%;
   left: 22%;
-
-    }
-    .winPopUp .small{
-      font-size: calc(var(--base-size)/10);
-    }
+}
+.winPopUp .small{
+  font-size: calc(var(--base-size)/10);
+}
+/*Animation of pop-up window */
 .show {
-      visibility: visible;
-      animation: appear 2s;
-      opacity:0.9;
-    }
-    @keyframes appear {
-      0% {opacity: 0;}
-      100% {opacity:0.9 ;}
-    }
+  visibility: visible;
+  animation: appear 2s;
+  opacity:0.9;
+}
+@keyframes appear {
+  0% {opacity: 0;}
+  100% {opacity:0.9 ;}
+}
 
-    .stats{
-      font-size: calc(var(--base-size)/7);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .winPopUp .small{
-      text-align: center;
-    }
+.stats{
+  font-size: calc(var(--base-size)/7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.winPopUp .small{
+  text-align: center;
+}
