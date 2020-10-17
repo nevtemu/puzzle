@@ -8,7 +8,7 @@
     --base-size: calc((100vh - 12vh)/3.7);
   }
   .gamefield{
-    margin: 0 calc((100vw - var(--base-size)*3.3)/2); 
+    margin: 0 calc((100vw - 4vw - var(--base-size)*3.3)/2); 
   }
 }
 @media only screen and (orientation: portrait){
