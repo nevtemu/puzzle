@@ -26,9 +26,10 @@ const changeBoxStatus = (box) => {
             document.getElementById(`box${boxList[j]}`).classList.toggle("animate1");
             document.getElementById(`box${boxList[j]}`).classList.toggle("animate2");
         }
-        else {document.getElementById(`box${boxList[j]}`).setAttribute("name", "inactive")
-        document.getElementById(`box${boxList[j]}`).classList.toggle("animate1");
-        document.getElementById(`box${boxList[j]}`).classList.toggle("animate2");
+        else {
+            document.getElementById(`box${boxList[j]}`).setAttribute("name", "inactive")
+            document.getElementById(`box${boxList[j]}`).classList.toggle("animate1");
+            document.getElementById(`box${boxList[j]}`).classList.toggle("animate2");
         }   
     }   
 }
@@ -43,9 +44,9 @@ const userMove = (buttonID)=>{
 }
 const convertTime = (value) => { return value > 9 ? value : "0" + value; }
 const countTime = () => {
-  time++;
-  document.getElementById("seconds").innerHTML = convertTime(time % 60);
-  document.getElementById("minutes").innerHTML = convertTime(parseInt(time / 60));
+    time++;
+    document.getElementById("seconds").innerHTML = convertTime(time % 60);
+    document.getElementById("minutes").innerHTML = convertTime(parseInt(time / 60));
 }
 const createBoxes = () => {
     time = 0;
